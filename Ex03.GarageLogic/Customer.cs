@@ -31,19 +31,53 @@ namespace Ex03.GarageLogic
         {
             get 
             {
-                return r_Name; 
+                return this.r_Name; 
             }
         }
         internal string PhoneNumber 
         {
             get 
             { 
-                return r_PhoneNumber; 
+                return this.r_PhoneNumber; 
+            }
+        }
+        internal eServeiceStatus VehicleStatus 
+        {
+            get { return this.m_VechileStatus; }
+            set
+            {
+                if(Enum.IsDefined(typeof(eServeiceStatus), value))
+                {
+                    this.m_VechileStatus = value;
+                }
+                else
+                {
+                    Exception ex = new Exception("Vehcile status is invalid");
+                    throw new ValueOutOfRangeException(ex, (float)Enum.GetValues(typeof(eServeiceStatus)).Length, 1f);
+                }
             }
         }
         internal Vehicle Vehicle 
         {
-            get { return r_Vechile; }
+            get { return this.r_Vechile; }
+        }
+        internal static string showCaseServiceStatus()
+        {
+            StringBuilder stringServiceStatus = new StringBuilder();
+
+            foreach (eServeiceStatus serveiceStatus in Enum.GetValues(typeof(eServeiceStatus)))
+            {
+                stringServiceStatus.Append(serveiceStatus.ToString());
+            }
+            return stringServiceStatus.ToString();
+        }
+        public override string ToString()
+        {
+            string strServiceStatus = string.Format($"Car Owner:{this.Name}{Environment.NewLine}" +
+                $"Car owner phone number: {this.PhoneNumber}{Environment.NewLine}" +
+                $"Car :{this.Vehicle.ToString()}" +
+                $"Car Status:{this.VehicleStatus.ToString()}");
+            return strServiceStatus;
         }
     }
 }
