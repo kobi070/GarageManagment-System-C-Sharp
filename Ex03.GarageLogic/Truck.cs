@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
 {
     internal class Truck : Vehicle
     {
-        private readonly bool r_HasDangerousChemicals;
+        private  bool m_HasDangerousChemicals;
         private float m_CargoCapacity;
 
         internal Truck(string i_LicenseNumber, int i_NumOfWheels, float io_MaxAirPressure, object i_EnergyType) : base(i_LicenseNumber, i_NumOfWheels, io_MaxAirPressure, i_EnergyType)
@@ -16,7 +16,8 @@ namespace Ex03.GarageLogic
         }
         internal bool HasDangerousChemicals
         {
-            get { return this.r_HasDangerousChemicals; }
+            get { return this.m_HasDangerousChemicals; }
+            set { this.m_HasDangerousChemicals = value; }
         }
         internal float CargoCapacity
         {

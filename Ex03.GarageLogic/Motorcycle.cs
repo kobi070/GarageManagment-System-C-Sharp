@@ -54,7 +54,7 @@ namespace Ex03.GarageLogic
                 }
             }
         }
-        internal string showCaseLicenseType()
+        internal static string showCaseLicenseType()
         {
             StringBuilder stringLicenseTypes = new StringBuilder();
 

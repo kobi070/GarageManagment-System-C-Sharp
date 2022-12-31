@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
+    internal enum eFuelType
+    {
+        Octan95 = 1,
+        Octan96,
+        Octan98,
+        Soler
+    }
     internal class Fuel
     {
-        public enum eFuelType
-        {
-            Octan95 = 1,
-            Octan96,
-            Octan98,
-            Soler
-        }
 
         private readonly eFuelType r_FuelType;
         private readonly float r_MaxFuel;
@@ -72,6 +72,29 @@ namespace Ex03.GarageLogic
                 /// need to create a new Exeption named ValueOutOfRangeException which handles ranges of psi, fuel etc...
             }
             return isFinished;
+        }
+        public static string ShowFuelTypes()
+        {
+            StringBuilder fuelTypes = new StringBuilder();
+
+            foreach (eFuelType fuelType in Enum.GetValues(typeof(eFuelType)))
+            {
+                fuelTypes.Append(string.Format("{0}. {1}{2}", (int)fuelType, fuelType.ToString(), Environment.NewLine));
+            }
+
+            return fuelTypes.ToString();
+        }
+
+        public override string ToString()
+        {
+            string fuel = string.Format(
+                "Fuel type is {0}, it has {1} amount of gas left out of {2}{3}",
+                FuelType.ToString(),
+                this.CurrentFuelPrecentege,
+                this.MaxFuel,
+                Environment.NewLine);
+
+            return fuel;
         }
     }
 }

@@ -43,7 +43,10 @@ namespace Ex03.GarageLogic
                 }
             }
         }
-        internal string LicenseNumber { get { return this.r_LicenseNumber; } }
+        internal string LicenseNumber 
+        { 
+            get { return this.r_LicenseNumber; }
+        }
         internal float EnergeyPrecentege
         {
             get
@@ -65,9 +68,12 @@ namespace Ex03.GarageLogic
         }
         internal object EngeingEnergey
         {
-            get { return this.EngeingEnergey; }
+            get { return this.r_EngeingEnergey; }
         }
 
-        internal Wheel[] Wheels { get { return r_Wheels; } }
+        internal Wheel[] Wheels 
+        {
+            get { return r_Wheels; }
+        }
     }
 }

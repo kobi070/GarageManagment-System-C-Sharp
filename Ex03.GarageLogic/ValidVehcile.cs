@@ -48,12 +48,51 @@ namespace Ex03.GarageLogic
             LicenseType,
             EngineCapacity
         }
-        private const bool k_ElectricOrNot = true;
         private const float k_Precentege = 100f;
+        private const bool k_Electric = true;
         private static readonly string[] sr_SupportedVehicleArr = new string[] { "Regular Motorcycle", "Electric Motorcycle", "Regular Car", "Electric Car", "Truck" };
         internal static string[] SupportedVehicleArr
         {
             get { return sr_SupportedVehicleArr; }
+        }
+        internal static Vehicle createVehicle(eSupportedVehcile i_VehiclesChoice, string io_LicenseNumber)
+        {
+            Vehicle newVehicle = null;
+
+            switch (i_VehiclesChoice)
+            {
+                case eSupportedVehcile.ElectricMotorcycle:
+                    {
+                        newVehicle = CreateMotorcycle(io_LicenseNumber, k_Electric);
+                        break;
+                    }
+
+                case eSupportedVehcile.ElectricCar:
+                    {
+                        newVehicle = CreateCar(io_LicenseNumber, k_Electric);
+                        break;
+                    }
+
+                case eSupportedVehcile.Truck:
+                    {
+                        newVehicle = CreateTruck(io_LicenseNumber);
+                        break;
+                    }
+
+                case eSupportedVehcile.RegularMotorcycle:
+                    {
+                        newVehicle = CreateMotorcycle(io_LicenseNumber, !k_Electric);
+                        break;
+                    }
+
+                case eSupportedVehcile.RegularCar:
+                    {
+                        newVehicle = CreateCar(io_LicenseNumber, !k_Electric);
+                        break;
+                    }
+            }
+
+            return newVehicle;
         }
         internal static Vehicle CreateCar(string io_SerialNumber, bool i_IsElectric)
         {
@@ -223,9 +262,27 @@ namespace Ex03.GarageLogic
             }
             if (i_DataDictionary.ContainsKey(ePossibleValues.DangerousChemicals))
             {
-                //(io_Vehicle as Truck).HasDangerousChemicals = (bool)i_DataDictionary[ePossibleValues.DangerousChemicals];
+                (io_Vehicle as Truck).HasDangerousChemicals = (bool)i_DataDictionary[ePossibleValues.DangerousChemicals];
             }
+            if (i_DataDictionary.ContainsKey(ePossibleValues.EngineCapacity))
+            {
+                if (int.TryParse(i_DataDictionary[ePossibleValues.EngineCapacity].ToString(), out int currentEngineCapacity))
+                {
+                    (io_Vehicle as Motorcycle).EngeineCapacity = currentEngineCapacity;
+                }
+            }
+        }
+        internal static string ShowCaseValidVehciles()
+        {
+            StringBuilder stringBuilderValidVehciles = new StringBuilder();
+            int index = 1;
 
+            foreach (string vehicle in sr_SupportedVehicleArr)
+            {
+                stringBuilderValidVehciles.Append(string.Format($"{index++}." +
+                    $"{vehicle}{Environment.NewLine}"));
+            }
+            return stringBuilderValidVehciles.ToString();
         }
     }
 }
