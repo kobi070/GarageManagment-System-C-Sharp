@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
+
+    internal enum eLicenseType
+    {
+        A = 1,
+        A1,
+        AA,
+        B
+    }
     internal class Motorcycle : Vehicle
     {
-        public enum eLicenseType
-        {
-            A = 1,
-            A1,
-            AA,
-            B
-        }
-
         private eLicenseType m_LicenseType;
         private int m_EngeineCapacity;
 
