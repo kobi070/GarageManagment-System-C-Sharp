@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    internal class Garage
+    public class Garage
     {
         private readonly Dictionary<string, Customer> r_Customers = new Dictionary<string, Customer>();
 
