@@ -13,9 +13,8 @@ namespace Ex03.GarageLogic
         private float m_TimeLeftInHours;
         private readonly float r_MaxTimeInHours;
 
-        public Electric(float m_TimeLeftInHours, float i_MaxTimeInHours)
+        public Electric(float i_MaxTimeInHours)
         {
-            this.m_TimeLeftInHours = m_TimeLeftInHours;
             this.r_MaxTimeInHours = i_MaxTimeInHours;
         }
         public float TimeLeftInHouers

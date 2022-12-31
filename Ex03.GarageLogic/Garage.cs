@@ -27,7 +27,7 @@ namespace Ex03.GarageLogic
             }
             else
             {
-                if (Enum.IsDefined(typeof(), io_serveiceStatus))
+                if (Enum.IsDefined(typeof(eSupportedVehcile), io_serveiceStatus))
                 {
                     ///...
                 }
