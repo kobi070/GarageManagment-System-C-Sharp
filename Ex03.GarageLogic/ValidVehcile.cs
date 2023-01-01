@@ -102,18 +102,17 @@ namespace Ex03.GarageLogic
             Car newCar = null;
             if (i_IsElectric)
             {
-                Electric electricEngine = new Electric(1.2f);
+                Electric electricEngine = new Electric(4.7f);
                 newCar = new Car(io_SerialNumber, (int)eSupportedVehicleWheels.Car, (int)eSupportedVehicleWheelsPressure.Car, electricEngine);
             }
             else
             {
-                Fuel fuelEngine = new Fuel(eFuelType.Octan95, 1.2f);
+                Fuel fuelEngine = new Fuel(eFuelType.Octan95, 50f);
                 newCar = new Car(io_SerialNumber, (int)eSupportedVehicleWheels.Car, (int)eSupportedVehicleWheelsPressure.Car, fuelEngine);
             }
 
             return newCar;
         }
-  
         internal static Vehicle CreateMotorcycle(string io_SerialNumber, bool i_IsElectric)
         {
 
@@ -123,12 +122,12 @@ namespace Ex03.GarageLogic
             if (i_IsElectric)
             {
 
-                Electric electricEngine = new Electric(1.2f);
+                Electric electricEngine = new Electric(1.6f);
                 newMotorcycle = new Motorcycle(io_SerialNumber, (int)eSupportedVehicleWheels.Motorcycle, (int)eSupportedVehicleWheelsPressure.Motorcycle, electricEngine);
             }
             else
             {
-                Fuel fuelEngeine = new Fuel(eFuelType.Octan98, 1.2f);
+                Fuel fuelEngeine = new Fuel(eFuelType.Octan98, 6f);
                 newMotorcycle = new Motorcycle(io_SerialNumber, (int)eSupportedVehicleWheels.Motorcycle, (int)eSupportedVehicleWheelsPressure.Motorcycle, fuelEngeine);
             }
             return newMotorcycle;
@@ -136,7 +135,7 @@ namespace Ex03.GarageLogic
         internal static Vehicle CreateTruck(string io_SerialNumber)
         {
             /// Creation of a truck
-            Fuel fuelEngeine = new Fuel(eFuelType.Soler, 1.2f);
+            Fuel fuelEngeine = new Fuel(eFuelType.Soler, 120f);
             Truck truckToCreate = new Truck(io_SerialNumber, (int)eSupportedVehicleWheels.Truck, (int)eSupportedVehicleWheelsPressure.Truck, fuelEngeine);
             return truckToCreate;
         }
@@ -155,10 +154,12 @@ namespace Ex03.GarageLogic
                 if (currentSupportedVehcile.Equals(eSupportedVehcile.ElectricMotorcycle) || currentSupportedVehcile.Equals(eSupportedVehcile.ElectricCar))
                 {
                     io_DataDictionary.Add(ePossibleValues.CurrentHours, string.Empty);
+                    //io_DataDictionary.Add(ePossibleValues.EngineCapacity, string.Empty);
                 }
                 else
                 {
                     io_DataDictionary.Add(ePossibleValues.CurrentFuel, string.Empty);
+                    //io_DataDictionary.Add(ePossibleValues.EngineCapacity, string.Empty);
                 }
 
                 if (currentSupportedVehcile.Equals(eSupportedVehcile.ElectricMotorcycle) || currentSupportedVehcile.Equals(eSupportedVehcile.RegularMotorcycle))
@@ -175,6 +176,8 @@ namespace Ex03.GarageLogic
                 {
                     io_DataDictionary.Add(ePossibleValues.DangerousChemicals, false);
                     io_DataDictionary.Add(ePossibleValues.CargoCpacity, string.Empty);
+                    io_DataDictionary.Add(ePossibleValues.EngineCapacity, string.Empty);
+
                 }
 
             }
@@ -205,7 +208,7 @@ namespace Ex03.GarageLogic
                 if (float.TryParse(i_DataDictionary[ePossibleValues.CurrentHours].ToString(), out float currentElectric))
                 {
                     Electric electricEngine = io_Vehicle.EngeingEnergey as Electric;
-                    electricEngine.TimeLeftInHouers = currentElectric/ 60f;
+                    electricEngine.TimeLeftInHouers = currentElectric / 60f;
                     float electricPrecentege = electricEngine.TimeLeftInHouers / electricEngine.MaxTimeInHouers;
                     io_Vehicle.EnergeyPrecentege = electricPrecentege * k_Precentege;
                 }
@@ -232,7 +235,7 @@ namespace Ex03.GarageLogic
             {
                 for (int i = 0; i < io_Vehicle.Wheels.Length; i++)
                 {
-                        io_Vehicle.Wheels[i].Maneufacture = i_DataDictionary[ePossibleValues.WheelManufacturer].ToString();
+                    io_Vehicle.Wheels[i].Maneufacture = i_DataDictionary[ePossibleValues.WheelManufacturer].ToString();
                 }   
             }
             if (i_DataDictionary.ContainsKey(ePossibleValues.LicenseType))

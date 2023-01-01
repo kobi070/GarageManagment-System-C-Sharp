@@ -16,13 +16,14 @@ namespace Ex03.GarageLogic
         public Electric(float i_MaxTimeInHours)
         {
             this.r_MaxTimeInHours = i_MaxTimeInHours;
+            this.m_TimeLeftInHours = 0f;
         }
         public float TimeLeftInHouers
         {
             get { return this.m_TimeLeftInHours; }
             set
             {
-                if (this.m_TimeLeftInHours >= k_MinTime && this.m_TimeLeftInHours >= value)
+                if (value >= k_MinTime && r_MaxTimeInHours >= value)
                 {
                     this.m_TimeLeftInHours = value;
                 }

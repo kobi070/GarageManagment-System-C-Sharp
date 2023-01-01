@@ -20,9 +20,9 @@ namespace Ex03.GarageLogic
             }
             set
             {
-                if (string.Empty != value)
+                if (value != string.Empty)
                 {
-                    this.Maneufacture = value;
+                    m_Manufactore = value;
                 }
                 else
                 {
@@ -54,6 +54,7 @@ namespace Ex03.GarageLogic
         internal Wheel(float i_NumOfWheels)
         {
             r_MaxPsi = i_NumOfWheels;
+            //m_Manufactore = string.Empty;
         }
         public bool InflateWheel(float i_InflationRate)
         {

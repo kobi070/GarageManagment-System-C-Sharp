@@ -264,8 +264,8 @@ Options:
             Console.WriteLine(@"Options:
 1. Regular Motorcycle
 2. Electric Motorcycle
-3. Regular Car
-4. Electric Car
+3. Electric Car
+4. Regular Car
 5. Truck");
             int.TryParse(Console.ReadLine(), out io_VehcileChoice);
 
@@ -290,7 +290,7 @@ Options:
         }
         public void getExtraInformation(int io_VehcileChoice, string io_LicenseNumber)
         {
-            Dictionary<ePossibleValues, object> extraInformationToFill = new Dictionary<ePossibleValues, object>();
+            Dictionary<ePossibleValues, object> extraInformationToFill = this.r_MyGarage.GetExtraInfo(io_VehcileChoice);
             bool inputCheck = true;
 
             while (inputCheck)
@@ -319,6 +319,7 @@ Options:
                 {
                     Console.WriteLine("Enter wheels manufactuer: ");
                     extraInformationToFill[ePossibleValues.WheelManufacturer] = Console.ReadLine();
+                    Console.WriteLine($"{extraInformationToFill[ePossibleValues.WheelManufacturer]}");
                 }
                 if (extraInformationToFill.ContainsKey((ePossibleValues)ePossibleValues.Color))
                 {
