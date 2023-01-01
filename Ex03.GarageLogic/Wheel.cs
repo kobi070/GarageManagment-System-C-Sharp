@@ -70,5 +70,16 @@ namespace Ex03.GarageLogic
             }
             return isValidWheel;
         }
+        public override string ToString()
+        {
+            string wheel = string.Format(
+                "Manufacturer is {0}, current air pressure is {1} out of {2}.{3}",
+                this.Maneufacture,
+                this.CurrentPsi,
+                this.MaxPsi,
+                Environment.NewLine);
+
+            return wheel;
+        }
     }
 }

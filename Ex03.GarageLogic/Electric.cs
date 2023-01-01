@@ -50,5 +50,15 @@ namespace Ex03.GarageLogic
             }
             return isValidToUpdate;
         }
+        public override string ToString()
+        {
+            string electric = string.Format(
+                "The battay has {0} hours left out of {1} hours{2}",
+                this.TimeLeftInHouers,
+                this.MaxTimeInHouers,
+                Environment.NewLine);
+
+            return electric;
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace Ex03.ConsoleUI
                     Console.WriteLine(ex.Message);
                 }
 
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(4000);
                 Console.Clear();
                 printOptions(out userChoice);
             }

@@ -73,10 +73,13 @@ namespace Ex03.GarageLogic
         }
         public override string ToString()
         {
-            string strServiceStatus = string.Format($"Car Owner:{this.Name}{Environment.NewLine}" +
-                $"Car owner phone number: {this.PhoneNumber}{Environment.NewLine}" +
-                $"Car :{this.Vehicle.ToString()}" +
-                $"Car Status:{this.VehicleStatus.ToString()}");
+            string strServiceStatus = string.Format(
+                "The owner is {0} and his phone number is {1}{2}{3}Vehicle Status is: {4}",
+                Name,
+                PhoneNumber,
+                Environment.NewLine,
+                Vehicle.ToString(),
+                VehicleStatus.ToString());
             return strServiceStatus;
         }
     }

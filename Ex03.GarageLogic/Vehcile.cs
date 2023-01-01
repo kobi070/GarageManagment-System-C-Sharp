@@ -25,7 +25,6 @@ namespace Ex03.GarageLogic
                 this.r_Wheels[j] = new Wheel(io_MaxAirPressure);
             }
         }
-
         // Properties
         internal string ModelName
         {
@@ -70,10 +69,29 @@ namespace Ex03.GarageLogic
         {
             get { return this.r_EngeingEnergey; }
         }
-
         internal Wheel[] Wheels 
         {
             get { return r_Wheels; }
+        }
+        public override string ToString()
+        {
+            StringBuilder vehicle = new StringBuilder();
+            int index = 1;
+
+            vehicle.Append(string.Format(
+                "License Number is: {0}{1}Model Name is: {2}{1}Wheels info: {1}",
+                LicenseNumber,
+                Environment.NewLine,
+                ModelName));
+
+            foreach (Wheel currentWheel in Wheels)
+            {
+                vehicle.Append(string.Format("Wheel #{0}. {1}", index++, currentWheel.ToString()));
+            }
+
+            vehicle.Append(string.Format("Enregy is ({0})% full. {1}", this.m_PrecentegeOfEnergey, this.r_EngeingEnergey.ToString()));
+
+            return vehicle.ToString();
         }
     }
 }
