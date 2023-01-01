@@ -144,7 +144,7 @@ namespace Ex03.GarageLogic
             /// Add to our data Dictionary by each vehcile attributes
             /// each vehicle has is kind of attributes which are unique to him
             io_DataDictionary = new Dictionary<ePossibleValues, object>();
-            if (i_VehicleChoice > 0 && i_VehicleChoice < sr_SupportedVehicleArr.Length)
+            if (i_VehicleChoice > 0 && i_VehicleChoice <= sr_SupportedVehicleArr.Length)
             {
                 eSupportedVehcile currentSupportedVehcile = (eSupportedVehcile)i_VehicleChoice;
                 io_DataDictionary.Add(ePossibleValues.WheelManufacturer, string.Empty);
@@ -174,7 +174,7 @@ namespace Ex03.GarageLogic
                 }
                 else
                 {
-                    io_DataDictionary.Add(ePossibleValues.DangerousChemicals, false);
+                    io_DataDictionary.Add(ePossibleValues.DangerousChemicals, true);
                     io_DataDictionary.Add(ePossibleValues.CargoCpacity, string.Empty);
                     io_DataDictionary.Add(ePossibleValues.EngineCapacity, string.Empty);
 
