@@ -67,7 +67,7 @@ namespace Ex03.GarageLogic
 
             foreach (eServeiceStatus serveiceStatus in Enum.GetValues(typeof(eServeiceStatus)))
             {
-                stringServiceStatus.Append(serveiceStatus.ToString());
+                stringServiceStatus.Append(serveiceStatus.ToString() + " ");
             }
             return stringServiceStatus.ToString();
         }

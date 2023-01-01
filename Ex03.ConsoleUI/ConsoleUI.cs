@@ -133,10 +133,15 @@ Options:
 
             if (r_MyGarage.addNewVehicle(io_Name, io_PhoneNumber, io_LicensenseNumber, io_VehcileChoice))
             {
-                Console.WriteLine("");
+                getExtraInformation(io_VehcileChoice, io_LicensenseNumber);
+                Console.WriteLine("Added new vehcile to garage");
+            }
+            else
+            {
+                Console.WriteLine("This vehicle is already in");
             }
 
-            
+
         }
         public void inflateToMax()
         {
@@ -256,12 +261,18 @@ Options:
             io_VehcileChoice = 0;
 
             Console.WriteLine("Please enter customer's vehcile :");
+            Console.WriteLine(@"Options:
+1. Regular Motorcycle
+2. Electric Motorcycle
+3. Regular Car
+4. Electric Car
+5. Truck");
             int.TryParse(Console.ReadLine(), out io_VehcileChoice);
 
-            while(io_VehcileChoice > 0 &&  io_VehcileChoice < maxVehcileChoice)
+            while(io_VehcileChoice < 1 || io_VehcileChoice > maxVehcileChoice)
             {
                 Console.Write($"{r_ErrorMsg}{Environment.NewLine}" +
-                    $"Must choose one of the following: 1-{maxVehcileChoice}");
+                    $"Must choose one of the following: 1-{maxVehcileChoice}{Environment.NewLine}");
                 int.TryParse(Console.ReadLine(), out io_VehcileChoice);
             }
         }
@@ -270,10 +281,10 @@ Options:
             Console.WriteLine("Enter vehcile license number: ");
             io_LicenseNumber = Console.ReadLine();
 
-            if(io_LicenseNumber.Length != k_LicenseLength)
+            if(io_LicenseNumber.Length > k_LicenseLength)
             {
                 Console.WriteLine($"{r_ErrorMsg}{Environment.NewLine}" +
-                    $"Vehcile license number is not {k_LicenseLength}");
+                    $"Vehcile license number can not be larger than {k_LicenseLength}");
                 io_LicenseNumber = Console.ReadLine();
             }
         }
