@@ -262,8 +262,8 @@ Options:
 
             Console.WriteLine("Please enter customer's vehcile :");
             Console.WriteLine(@"Options:
-1. Regular Motorcycle
-2. Electric Motorcycle
+1. Electric Motorcycle
+2. Regular Motorcycle
 3. Electric Car
 4. Regular Car
 5. Truck");
