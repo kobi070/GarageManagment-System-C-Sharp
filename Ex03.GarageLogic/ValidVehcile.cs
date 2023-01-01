@@ -107,11 +107,13 @@ namespace Ex03.GarageLogic
             }
             else
             {
-                Fuel fuelEngine = new Fuel(Fuel.eFuelType.Octan95, 1.2f);
+                Fuel fuelEngine = new Fuel(eFuelType.Octan95, 1.2f);
                 newCar = new Car(io_SerialNumber, (int)eSupportedVehicleWheels.Car, (int)eSupportedVehicleWheelsPressure.Car, fuelEngine);
             }
+
             return newCar;
         }
+  
         internal static Vehicle CreateMotorcycle(string io_SerialNumber, bool i_IsElectric)
         {
 
@@ -126,7 +128,7 @@ namespace Ex03.GarageLogic
             }
             else
             {
-                Fuel fuelEngeine = new Fuel(Fuel.eFuelType.Octan98, 1.2f);
+                Fuel fuelEngeine = new Fuel(eFuelType.Octan98, 1.2f);
                 newMotorcycle = new Motorcycle(io_SerialNumber, (int)eSupportedVehicleWheels.Motorcycle, (int)eSupportedVehicleWheelsPressure.Motorcycle, fuelEngeine);
             }
             return newMotorcycle;
@@ -134,7 +136,7 @@ namespace Ex03.GarageLogic
         internal static Vehicle CreateTruck(string io_SerialNumber)
         {
             /// Creation of a truck
-            Fuel fuelEngeine = new Fuel(Fuel.eFuelType.Soler, 1.2f);
+            Fuel fuelEngeine = new Fuel(eFuelType.Soler, 1.2f);
             Truck truckToCreate = new Truck(io_SerialNumber, (int)eSupportedVehicleWheels.Truck, (int)eSupportedVehicleWheelsPressure.Truck, fuelEngeine);
             return truckToCreate;
         }

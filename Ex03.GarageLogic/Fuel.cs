@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    internal enum eFuelType
+    public enum eFuelType
     {
         Octan95 = 1,
         Octan96,
@@ -84,7 +84,6 @@ namespace Ex03.GarageLogic
 
             return fuelTypes.ToString();
         }
-
         public override string ToString()
         {
             string fuel = string.Format(

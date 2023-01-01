@@ -109,7 +109,7 @@ namespace Ex03.ConsoleUI
                 watchIsFixed = true;
                 watchIsPaid = true;
             }
-            Console.Write(r_MyGarage.GarageVehcileFilter(watchInRapir, watchIsFixed, watchIsPaid);
+            Console.Write(r_MyGarage.GarageVehcileFilter(watchInRapir, watchIsFixed, watchIsPaid));
         }
         public void printByLicenseNumber()
         {

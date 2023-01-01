@@ -1,0 +1,2 @@
+C:\Users\Kobi\Desktop\Studies\ThirdYear\Code-C#\MyProjects\A23 Ex03 KobiKuzi 316063908 TomerChoen\Ex03.GarageLogic\obj\Debug\Ex03.GarageLogic.csproj.AssemblyReference.cache
+C:\Users\Kobi\Desktop\Studies\ThirdYear\Code-C#\MyProjects\A23 Ex03 KobiKuzi 316063908 TomerChoen\Ex03.GarageLogic\obj\Debug\Ex03.GarageLogic.csproj.CoreCompileInputs.cache
