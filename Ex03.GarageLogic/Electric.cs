@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic
                 else
                 {
                     Exception ex = new Exception("Invalid charge precentege");
-                    /// need to create a new Exeption named ValueOutOfRangeException which handles ranges of psi, fuel etc...
+                    throw new ValueOutOfRangeException(ex, MaxTimeInHouers, k_MinTime);
                 }
 
             }

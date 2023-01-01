@@ -75,7 +75,7 @@ namespace Ex03.GarageLogic
             }
             return isInflated;
         }
-        public bool fuelGas(string i_SerialNumber, int io_FuelType, int io_FuelToAdd)
+        public bool fuelGas(string i_SerialNumber, int io_FuelType, float io_FuelToAdd)
         {
             bool isFull = false;
 
@@ -115,7 +115,7 @@ namespace Ex03.GarageLogic
             }
             return isFull;
         }
-        public bool chargeEnergey(string i_SerialNumber, int io_MinToAdd)
+        public bool chargeEnergey(string i_SerialNumber, float io_MinToAdd)
         {
             bool isFull = false;
 
@@ -145,6 +145,30 @@ namespace Ex03.GarageLogic
                 }
             }
             return isFull;
+        }
+        public bool VehcileInformation(string i_LicenseNumber, out string io_VehicleInformation)
+        {
+            bool found = false;
+
+            StringBuilder vehicleInfo = new StringBuilder();
+
+            if (isExist(i_LicenseNumber))
+            {
+                vehicleInfo.Append(r_Customers[i_LicenseNumber].ToString());
+                found = true;
+            }
+
+            io_VehicleInformation = vehicleInfo.ToString();
+            return found;
+        }
+        public Dictionary<ePossibleValues, object> GetExtraInfo(int io_VehicleChoice)
+        {
+            ValidVehcile.GetVehicleInfo(out Dictionary<ePossibleValues, object> DicToFill, io_VehicleChoice);
+            return DicToFill;
+        }
+        public void InsertInfo(Dictionary<ePossibleValues, object> i_FilledDic, string io_LicenseNumber)
+        {
+            ValidVehcile.FillVehicleInfo(r_Customers[io_LicenseNumber].Vehicle, i_FilledDic);
         }
         public int NumOfFuelTypes()
         {
@@ -207,7 +231,6 @@ namespace Ex03.GarageLogic
             }
             return isChanged;
         }
-        
         public string GarageVehcileFilter(bool i_InRapir, bool i_Fixed, bool i_Paid)
         {
             int indexForString = 1;

@@ -19,6 +19,20 @@ namespace Ex03.GarageLogic
         RegularCar,
         Truck
     }
+    public enum ePossibleValues
+    {
+        Doors,
+        Color,
+        ModelName,
+        CurrentFuel,
+        CurrentHours,
+        DangerousChemicals,
+        CargoCpacity,
+        WheelManufacturer,
+        CurentWheelAirPressure,
+        LicenseType,
+        EngineCapacity
+    }
     internal enum eSupportedVehicleWheels
     {
         Motorcycle = 2,
@@ -34,20 +48,7 @@ namespace Ex03.GarageLogic
     }
     internal class ValidVehcile
     {
-        public enum ePossibleValues
-        {
-            Doors,
-            Color,
-            ModelName,
-            CurrentFuel,
-            CurrentHours,
-            DangerousChemicals,
-            CargoCpacity,
-            WheelManufacturer,
-            CurentWheelAirPressure,
-            LicenseType,
-            EngineCapacity
-        }
+        
         private const float k_Precentege = 100f;
         private const bool k_Electric = true;
         private static readonly string[] sr_SupportedVehicleArr = new string[] { "Regular Motorcycle", "Electric Motorcycle", "Regular Car", "Electric Car", "Truck" };
