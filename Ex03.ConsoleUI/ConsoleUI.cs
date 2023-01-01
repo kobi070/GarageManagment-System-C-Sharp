@@ -70,15 +70,15 @@ namespace Ex03.ConsoleUI
                 $"Try 1-8{Environment.NewLine}");
             string garageMenu = string.Format(
                 @"Welcome to our garage {0}
-                Options:
-                1. Enter new vehicle to the garage.
-                2. Show license number of vehicles by filter.
-                3. Change status of vehicle.
-                4. Inflating air in wheels.
-                5. Fill gas tank.
-                6. Charge battery.
-                7. Show vehicle details.
-                8. Exit {0}", Environment.NewLine);
+Options:
+1. Enter new vehicle to the garage.
+2. Show license number of vehicles by filter.
+3. Change status of vehicle.
+4. Inflating air in wheels.
+5. Fill gas tank.
+6. Charge battery.
+7. Show vehicle details.
+8. Exit {0}", Environment.NewLine);
             Console.Write(garageMenu);
 
             while(!int.TryParse(Console.ReadLine(), out io_UserChoice) || io_UserChoice < 1 || io_UserChoice > k_NumberOfOptions)
