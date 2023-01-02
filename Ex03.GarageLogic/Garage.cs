@@ -40,8 +40,10 @@ namespace Ex03.GarageLogic
                     throw new ValueOutOfRangeException(ex, (float)numOfSupportedVehciles(), 0f);
                 }
             }
+
             return toAdd;
         }
+
         public bool InflateWheels(string i_SerialNumber)
         {
             bool isInflated = false;
@@ -63,7 +65,7 @@ namespace Ex03.GarageLogic
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception(String.Format($"License numbe {i_SerialNumber} is not in the system"), ex);
+                        throw new Exception(string.Format($"License numbe {i_SerialNumber} is not in the system"), ex);
                     }
                 }
                 else
@@ -73,21 +75,23 @@ namespace Ex03.GarageLogic
                         $", You can not work on this car"));
                 }
             }
+
             return isInflated;
         }
+
         public bool fuelGas(string i_SerialNumber, int io_FuelType, float io_FuelToAdd)
         {
             bool isFull = false;
 
-            if (isExist(i_SerialNumber))
+            if (this.isExist(i_SerialNumber))
             {
-                if (isInRapir(i_SerialNumber))
+                if (this.isInRapir(i_SerialNumber))
                 {
-                    if(Enum.IsDefined(typeof(eFuelType), io_FuelType))
+                    if (Enum.IsDefined(typeof(eFuelType), io_FuelType))
                     {
-                        if (r_Customers[i_SerialNumber].Vehicle.EngeingEnergey is Fuel)
+                        if (this.r_Customers[i_SerialNumber].Vehicle.EngeingEnergey is Fuel)
                         {
-                            Fuel fuelEngine = r_Customers[i_SerialNumber].Vehicle.EngeingEnergey as Fuel;
+                            Fuel fuelEngine = this.r_Customers[i_SerialNumber].Vehicle.EngeingEnergey as Fuel;
                             isFull = fuelEngine.toFuel(io_FuelToAdd, (eFuelType)io_FuelType);
 
                             if (isFull)
